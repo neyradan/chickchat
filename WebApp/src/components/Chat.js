@@ -1,7 +1,7 @@
 import moment from "moment"
 import React, {PropTypes} from "react"
 import {connect} from "react-redux"
-
+import ReplyBox from "./ReplyBox"
 export class Chat extends React.Component {
     render () {
         return (
@@ -9,7 +9,7 @@ export class Chat extends React.Component {
                 <ul style={ulStyle}>
                     {this.props.messages.map(renderMessage)}
                 </ul>
-
+<ReplyBox/>
                 {/* Exercise 2: Add a ReplyBox component */}
 
             </div>
@@ -21,7 +21,9 @@ function renderMessage (message) {
     return (
         <li key={message.messageId}>
 
-            {/* Exercise 3: Add message author */}
+            {message.author.name+":"}
+            <img src={message.author.picture} height="64" />
+
 
             {getMessageBody(message)}
         </li>
